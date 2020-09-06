@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/js/jquery-1.11.3.js">
+</head>
+<body>
+    <script src="/static/js/common.js"></script>
+    <button onclick="getXhr()">xhr-get</button>
+    <div id="show"></div>
+
+    <input type="text" id="uname">
+    <button onclick="getXhrP()">xhr-get-params</button>
+    <div id="show_p"></div>
+    <script>
+        function getXhrP() {
+            var xhr = createXhr();
+            var uname = document.getElementById('uname').value;
+            var url = '/user/get-xhr-server/?uname=' + uname;
+            xhr.open('get', url, true)
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('show_p').innerHTML =
+                        xhr.responseText;
+                }
+            }
+            xhr.send(null)
+        }
+        
+        
+        function getXhr() {
+            //创建请求
+            var xhr = createXhr();
+            xhr.open('get', '/user/get-xhr-server', true)
+            //设置灰调
+            xhr.onreadystatechange = function(){
+                //判断xhr状态和服务起状态
+                if (xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('show').innerHTML
+                        = xhr.responseText;
+
+                }
+            }
+            //发送请求
+            xhr.send(null)
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

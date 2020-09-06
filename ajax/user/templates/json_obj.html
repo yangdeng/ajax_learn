@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/common.js"></script>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+</head>
+<body>
+    <button onclick="showJson()">showJosn</button>
+
+    <script>
+        function showJson() {
+            /*var obj = {
+                "uname":"wanglaoshi",
+                "age":"18",
+                "gender":"male"
+            }
+            console.log("name" + obj.uname);
+            console.log("age" + obj.age);
+            console.log("gender"+obj.gender);*/
+            //表达多个json对象
+            var json_arr = [
+                {
+                    "uname":"王老师",
+                    "age":"19",
+                    "nickname":"老王"
+                },
+                {
+                  "uname":"王夫人",
+                    "age":"18",
+                    "nickname":"王夫人"
+                }
+            ]
+            //js循环　多个对象
+           /* for (var i = 0; i < json_arr.length; i++)
+            {
+                console.log("name:" + json_arr[i].uname);
+                console.log("age:" + json_arr[i].age);
+                console.log("gender:"+json_arr[i].nickname);
+            }*/
+
+           /*$(json_arr).each(function (i,obj) {
+               console.log('index:' + i);
+               console.log("name:" + obj.uname);
+                console.log("age:" + obj.age);
+                console.log("gender:"+obj.nickname);
+           })*/
+           
+           $.each(json_arr,function (i,obj) {
+               console.log('index:' + i);
+               console.log("name:" + obj.uname);
+                //console.log("age:" + obj.age);
+                //console.log("gender:"+obj.nickname);
+           })
+        }
+    </script>
+</body>
+</html>

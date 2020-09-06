@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/js/jquery-1.11.3.js"></script>
+</head>
+<body>
+    <p>This is load Test</p>
+    <button id="btn">show jquery load</button>
+    <div id="show"></div>
+
+
+    <script>
+        $(function () {
+            $('#btn').click(function () {
+                $('#show').load('/ajax/load_test_server/ #btn2');
+                //传参　get形式
+               /// $('#show').load('/ajax/load_test_server/',
+                  //  'uname=guoxiaonao&age=18')
+                //传参　post形式 js对象
+{#                $('#show').load('/ajax/load_test_server/',#}
+{#                    {uname:'guoxiaonao'})#}
+{#                $('#show').load('/ajax/load_test_server',function () {#}
+{#                    alert('----i am func!')#}
+{#                })#}
+
+                //测试load远程页面
+                $('#show').load('https://www.taobao.com')
+
+            })
+
+
+        })
+    </script>
+</body>
+</html>
